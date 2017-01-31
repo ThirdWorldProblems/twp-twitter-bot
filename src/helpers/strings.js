@@ -1,8 +1,8 @@
 module.exports = {
     queryString: [
-        '',
-        '',
-        ''
+        '#charity',
+        '#nonprofit',
+        '#opensource'
     ],
     queryStringSubQuery: [
         '',

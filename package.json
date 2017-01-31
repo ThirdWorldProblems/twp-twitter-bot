@@ -1,15 +1,23 @@
 {
-  "name": "twitter-bot",
+  "name": "twp-twitter-bot",
   "version": "1.0.0",
-  "description": "twitter bot bootstrap",
+  "description": "Twitter bot to retweet tweets marked with #charity, #nonprofit, #opensource",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "author": "",
+  "author": "Schalk Neethling",
   "license": "MIT",
   "dependencies": {
     "twit": "^2.2.5",
     "unique-random-array": "^1.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schalkneethling/twp-twitter-bot/"
+  },
+  "keywords": [
+    "bot",
+    "twitter"
+  ]
 }
