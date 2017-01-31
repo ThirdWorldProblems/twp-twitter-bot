@@ -1,6 +1,6 @@
 module.exports = {
     queryString: [
-        '#charity',
+        '#codeforgood',
         '#nonprofit',
         '#opensource'
     ],
@@ -10,9 +10,7 @@ module.exports = {
         ''
     ],
     resultType: [
-        'mixed',
-        'recent',
-        'popular'
+        'mixed'
     ],
     responseString: [
         'Hi @screenName thanks for the follow! !CR',
@@ -21,7 +19,6 @@ module.exports = {
         'Thanks for following @screenName! !CR',
         'Hey @screenName, thanks for following! !CR',
         'Awesome @screenName, thanks for following! !CR',
-        'Thanks for the follow @screenName! !CR',
-        'Thanks for following @screenName! How are you today? !CR'
+        'Thanks for the follow @screenName! !CR'
     ]
 };
