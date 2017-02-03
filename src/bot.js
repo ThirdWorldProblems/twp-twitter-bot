@@ -1,6 +1,7 @@
 // Dependencies =========================
 var twit = require('twit')
 var ura = require('unique-random-array')
+var botConfig = require('./bot-config')
 var config = require('./config')
 var strings = require('./helpers/strings')
 
@@ -16,6 +17,8 @@ var qs = ura(strings.queryString)
 var qsSq = ura(strings.queryStringSubQuery)
 var rt = ura(strings.resultType)
 var rs = ura(strings.responseString)
+
+console.log(botConfig)
 
 // https://dev.twitter.com/rest/reference/get/search/tweets
 // A UTF-8, URL-encoded search query of 500 characters maximum, including operators.
@@ -119,31 +122,33 @@ favoriteTweet()
     // favorite in every x minutes
 setInterval(favoriteTweet, 60000 * favoriteFrequency)
 
-// STREAM API for interacting with a USER =======
-// set up a user stream
-var stream = Twitter.stream('user')
+if (botConfig.autoReply) {
+    // STREAM API for interacting with a USER =======
+    // set up a user stream
+    var stream = Twitter.stream('user')
 
-// REPLY-FOLLOW BOT ============================
+    // REPLY-FOLLOW BOT ============================
 
-// what to do when someone follows you?
-stream.on('follow', followed)
+    // what to do when someone follows you?
+    stream.on('follow', followed)
 
-// ...trigger the callback
-function followed(event) {
-    console.log('Follow Event now RUNNING')
-        // get USER's twitter handle (screen name)
-    var screenName = event.source.screen_name
+    // ...trigger the callback
+    function followed(event) {
+        console.log('Follow Event now RUNNING')
+            // get USER's twitter handle (screen name)
+        var screenName = event.source.screen_name
 
-    // CREATE RANDOM RESPONSE  ============================
-    var responseString = rs()
-    var find = 'screenName'
-    var regex = new RegExp(find, "g")
-    responseString = responseString.replace(regex, screenName)
+        // CREATE RANDOM RESPONSE  ============================
+        var responseString = rs()
+        var find = 'screenName'
+        var regex = new RegExp(find, "g")
+        responseString = responseString.replace(regex, screenName)
 
-    // function that replies back to every USER who followed for the first time
-    console.log(responseString)
-    tweetNow(responseString)
+        // function that replies back to every USER who followed for the first time
+        console.log(responseString)
+        tweetNow(responseString)
 
+    }
 }
 
 // function definition to tweet back to USER who followed
