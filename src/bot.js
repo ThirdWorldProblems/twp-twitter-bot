@@ -177,6 +177,7 @@ function tweetNow(tweetTxt) {
 
 // function to generate a random tweet tweet
 function ranDom(arr) {
-    var index = Math.floor(Math.random() * arr.length)
-    return arr[index]
+    var length = arr.length | 1;
+    var index = Math.floor(Math.random() * length);
+    return arr[index];
 }
