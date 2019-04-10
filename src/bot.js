@@ -95,9 +95,12 @@ var favoriteTweet = function() {
     // find the tweet
     Twitter.get('search/tweets', params, function(err, data) {
 
-        // find tweets
+        // if response was empty, just return
+        if (data.statuses === undefined) {
+            return;
+        }
+
         var tweet = data.statuses;
-        console.log('search response, ', tweet);
         var randomTweet = ranDom(tweet); // pick a random tweet
 
         // if random tweet exists
