@@ -97,6 +97,7 @@ var favoriteTweet = function() {
 
         // find tweets
         var tweet = data.statuses;
+        console.log('search response, ', tweet);
         var randomTweet = ranDom(tweet); // pick a random tweet
 
         // if random tweet exists
