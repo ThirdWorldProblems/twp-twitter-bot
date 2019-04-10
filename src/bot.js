@@ -18,8 +18,6 @@ var qsSq = ura(strings.queryStringSubQuery)
 var rt = ura(strings.resultType)
 var rs = ura(strings.responseString)
 
-console.log(botConfig)
-
 // https://dev.twitter.com/rest/reference/get/search/tweets
 // A UTF-8, URL-encoded search query of 500 characters maximum, including operators.
 // Queries may additionally be limited by complexity.
@@ -69,6 +67,7 @@ var retweet = function() {
         }
         // if unable to Search a tweet
         else {
+            console.error(err);
             console.log('Something went wrong while SEARCHING...')
         }
     });
